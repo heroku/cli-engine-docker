@@ -1,4 +1,4 @@
-FROM node:8.0.0
+FROM node:7
 MAINTAINER Jeff Dickey <jeff@heroku.com>
 
 RUN apt-get -y update && \
