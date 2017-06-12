@@ -14,6 +14,8 @@ RUN pip install --upgrade pip && \
       pip install --upgrade virtualenv && \
       pip install --upgrade awscli
 
+RUN aws configure set preview.cloudfront true
+
 ENV PATH="${PATH}:./node_modules/.bin"
 
 CMD bash
