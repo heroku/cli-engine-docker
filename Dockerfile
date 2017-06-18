@@ -14,7 +14,8 @@ RUN apt-get -y update && \
 RUN pip install --upgrade pip && \
       pip install --upgrade virtualenv && \
       pip install --upgrade awscli && \
-      gem install devcenter
+      gem install devcenter && \
+			wget -qO- https://cli-assets.heroku.com/install-ubuntu.sh | sh
 
 RUN aws configure set preview.cloudfront true
 
