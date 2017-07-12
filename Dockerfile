@@ -23,6 +23,16 @@ RUN pip install --upgrade pip && \
       pip install --upgrade awscli && \
       gem install devcenter
 
+RUN wget https://cli-assets.heroku.com/osslsigncode-1.7.1.tar.gz && \
+    tar -xvzf osslsigncode-1.7.1.tar.gz && \
+    cd osslsigncode-1.7.1 && \
+    ./configure && \
+    make && \
+    make install
+
+RUN wget http://archive.ubuntu.com/ubuntu/pool/universe/n/nsis/nsis-common_2.51-1_all.deb && \
+    dpkg -i nsis-common_2.51-1_all.deb
+
 RUN aws configure set preview.cloudfront true
 
 ENV PATH="${PATH}:./node_modules/.bin"
