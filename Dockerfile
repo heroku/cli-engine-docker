@@ -57,6 +57,7 @@ RUN set -ex \
 ### end https://raw.githubusercontent.com/nodejs/docker-node/a5e2d0fab5b14773e0fdc460c0b96d0f93a80ba2/8.1/Dockerfile
 
 RUN echo "en_US.UTF-8 UTF-8" > /etc/locale.gen
+RUN dpkg --add-architecture i386
 RUN apt-get -y update && \
   apt-get install -y --no-install-recommends \
   apt-utils \
@@ -68,6 +69,8 @@ RUN apt-get -y update && \
   osslsigncode \
   nsis \
   python-setuptools \
+  wine \
+  wine32 \
   && apt-get clean && \
   rm -rf /var/lib/apt/lists/*
 
