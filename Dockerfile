@@ -5,7 +5,6 @@ MAINTAINER Jeff Dickey
 RUN apt-get -y update && \
   apt-get install -y --no-install-recommends \
   apt-utils \
-  shellcheck \
   python-dev \
   && \
   curl https://bootstrap.pypa.io/get-pip.py | python && \
