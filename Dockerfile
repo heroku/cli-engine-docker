@@ -2,10 +2,13 @@ FROM node:8.4
 
 MAINTAINER Jeff Dickey
 
+RUN echo "en_US.UTF-8 UTF-8" > /etc/locale.gen
+
 RUN apt-get -y update && \
   apt-get install -y --no-install-recommends \
   apt-utils \
   python-dev \
+  locales \
   && \
   curl https://bootstrap.pypa.io/get-pip.py | python && \
   pip install awscli --upgrade && \
@@ -14,6 +17,9 @@ RUN apt-get -y update && \
   apt-get clean && apt-get -y autoremove && \
   rm -rf /var/lib/apt/lists/* ~/.cache
 
-ENV PATH="${PATH}:./node_modules/.bin"
+ENV LANG en_US.UTF-8
+ENV LANGUAGE en_US:en
+ENV LC_ALL en_US.UTF-8
+RUN locale-gen
 
 CMD bash
