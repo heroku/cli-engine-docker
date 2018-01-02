@@ -21,6 +21,6 @@ RUN apt-get -y update && \
   apt-get clean && apt-get -y autoremove && \
   rm -rf \
     /var/lib/apt/lists/* \
-    ~/.cache
+    ~/.cache/*
 
 CMD bash
