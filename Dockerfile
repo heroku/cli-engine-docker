@@ -1,4 +1,4 @@
-FROM node:9.9.0
+FROM node:9.10.1
 
 MAINTAINER Jeff Dickey
 
